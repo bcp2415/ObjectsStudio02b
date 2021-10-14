@@ -16,9 +16,25 @@ const totalDistance = findCircumference(missionRadius);
 console.log(`The mission will travel ${totalDistance} km around the planet, and it will take ${duration} hours to complete.`);
 
 // Copy/paste your selectRandomEntry function here:
+let idNumbers = [291, 414, 503, 599, 796, 890];
 
 
-// Code your oxygenExpended function here:
+
+// Code your buildCrewArray function here:
+function buildCrewArray() {
+  let crewArray = [];
+  while (crewArray.length < 3) {
+    let newSelection = randomEntry();
+    while (crewArray.includes(newSelection)) {
+      newSelection = randomEntry();
+    };
+    crewArray.push(newSelection);
+  }
+  return crewArray;
+}
+
+
+
 
 
 // Candidate data & crew array.
@@ -66,3 +82,25 @@ let candidateF = {
 };
 
 let crew = [candidateA,candidateC,candidateE];
+let animals = [candidateA, candidateB, candidateC, candidateD, candidateE, candidateF];
+
+// Code your selectRandomEntry function here:
+function randomEntry() {
+  return idNumbers[Math.floor(Math.random() * idNumbers.length)];
+}
+
+function getSingleAstronaut(idNumber) {
+  const randomAstronautID = randomEntry();
+  for (animal in animals) {
+    if (randomAstronautID === animal.astronautID) {
+      return animal;
+    }
+  }
+}
+
+// Code your oxygenExpended function here:
+function oxygenExpended(astronautObject) {
+  
+}
+
+oxygenExpended(getSingleAstronaut());
