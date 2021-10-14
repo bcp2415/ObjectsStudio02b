@@ -89,10 +89,13 @@ function randomEntry() {
   return idNumbers[Math.floor(Math.random() * idNumbers.length)];
 }
 
-function getSingleAstronaut(idNumber) {
+function getSingleAstronaut() {
   const randomAstronautID = randomEntry();
+  console.log(randomAstronautID);
   for (animal in animals) {
+    console.log(`Now checking:  ${animal.name}`)
     if (randomAstronautID === animal.astronautID) {
+      
       return animal;
     }
   }
@@ -100,7 +103,9 @@ function getSingleAstronaut(idNumber) {
 
 // Code your oxygenExpended function here:
 function oxygenExpended(astronautObject) {
-  
+  console.log(astronautObject);
+   return;
 }
 
-oxygenExpended(getSingleAstronaut());
+const randomAstronaut = getSingleAstronaut();
+console.log(oxygenExpended(randomAstronaut));
