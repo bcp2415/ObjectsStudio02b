@@ -2,9 +2,18 @@
 function findCircumference(radius) {
   return Math.round(2 * Math.PI * radius);
 }
-console.log(findCircumference(2000));
-// Code your missionDuration function here:
 
+// Code your missionDuration function here:
+function missionDuration(numOrbits, orbitalRadius = 2000, orbitalSpeed = 28000) {
+  const circumference = findCircumference(orbitalRadius);
+  const duration = (numOrbits * circumference) / orbitalSpeed;
+  return Math.round(duration * 100) / 100;
+}
+const numberOfOrbits = 5;
+const missionRadius = 2000;
+const duration = missionDuration(numberOfOrbits);
+const totalDistance = findCircumference(missionRadius);
+console.log(`The mission will travel ${totalDistance} km around the planet, and it will take ${duration} hours to complete.`);
 
 // Copy/paste your selectRandomEntry function here:
 
