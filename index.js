@@ -98,6 +98,18 @@ function getSingleAstronaut() {
   }
 }
 
+function getLeastOxygenUser(candidateArray) {
+  let winner = candidateArray[0];
+  let o2Rate = candidateArray[0].o2Used(1);
+  for (animal of candidateArray) {
+    if (animal.o2Used(1) < o2Rate) {
+      winner = animal;
+      o2Rate = animal.o2Used(1);
+    }
+  }
+  return winner;
+}
+
 // Code your oxygenExpended function here:
 function oxygenExpended(astronautObject, orbRadius = 2000, orbSpeed = 28000) {
   const walkTime = missionDuration(3, orbRadius, orbSpeed);
@@ -107,3 +119,6 @@ function oxygenExpended(astronautObject, orbRadius = 2000, orbSpeed = 28000) {
 
 const randomAstronaut = getSingleAstronaut();
 console.log(oxygenExpended(randomAstronaut));
+
+const leastO2User = getLeastOxygenUser(animals);
+console.log(oxygenExpended(leastO2User));
