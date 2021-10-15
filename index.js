@@ -92,18 +92,17 @@ function randomEntry() {
 function getSingleAstronaut() {
   const randomAstronautID = randomEntry();
   for (animal of animals) {
-    console.log(`Now checking:  ${animal.name}`)
     if (randomAstronautID === animal.astronautID) {
-      
-      return animal;
+    return animal;
     }
   }
 }
 
 // Code your oxygenExpended function here:
-function oxygenExpended(astronautObject) {
-  
-   return;
+function oxygenExpended(astronautObject, orbRadius = 2000, orbSpeed = 28000) {
+  const walkTime = missionDuration(3, orbRadius, orbSpeed);
+  const oxygenUsed = Math.round(astronautObject.o2Used(walkTime) * 1000) / 1000;
+  return `${astronautObject.name} will perform the spacewalk, which will last ${walkTime} hours and require ${oxygenUsed} kg of oxygen.`;
 }
 
 const randomAstronaut = getSingleAstronaut();
