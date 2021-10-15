@@ -91,8 +91,7 @@ function randomEntry() {
 
 function getSingleAstronaut() {
   const randomAstronautID = randomEntry();
-  console.log(randomAstronautID);
-  for (animal in animals) {
+  for (animal of animals) {
     console.log(`Now checking:  ${animal.name}`)
     if (randomAstronautID === animal.astronautID) {
       
@@ -103,7 +102,7 @@ function getSingleAstronaut() {
 
 // Code your oxygenExpended function here:
 function oxygenExpended(astronautObject) {
-  console.log(astronautObject);
+  
    return;
 }
 
